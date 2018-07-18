@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option java_package = "com.prakhar.invoice";
+//option java_multiple_files = true;
+//option optimize_for = CODE_SIZE;
+
+message Invoice {
+    string id = 1;
+    float amount = 2;
+    string customerId = 3;
+    State state = 4;
+}
+
+
+enum State {
+    NEW = 0;
+    PAID = 1;
+    FAILED = 2;
+}
+
+service InvoiceService {
+    rpc Pay (Invoice) returns (Invoice);
+}
