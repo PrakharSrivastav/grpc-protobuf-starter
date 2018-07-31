@@ -7,7 +7,12 @@ import no.sysco.middleware.workshops.InvoiceServiceGrpc;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class InvoiceServiceImpl extends InvoiceServiceGrpc.InvoiceServiceImplBase {
+/**
+ * This class provides the business logic for the Pay method defined in invoice.proto
+ * InvocieServiceImplBase is a abstract class that contains the method definition for Pay operation on the api.
+ * If you add more methods to the invoice.proto and recompile the code, you would need to override the new method here.
+ */
+public final class InvoiceServiceImpl extends InvoiceServiceGrpc.InvoiceServiceImplBase {
 
     private static Logger logger = LoggerFactory.getLogger(InvoiceServiceImpl.class);
 
