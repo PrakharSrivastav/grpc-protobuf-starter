@@ -1,14 +1,19 @@
 # Getting started with GRPC protocol
 
-## Steps
-- define your message and service schema in proto syntax. `src/main/proto`
+## Workflow Steps
+- define your message and service schema in proto syntax. `src/main/proto/invoice.proto`
 - build project using gradle. This will generate compiled java source and classes.
-- Ideally push these generated source to a repo like artifactory. this is because your client and the server applications will live at different places in real world.
-- Instead of pushing to artifactory, we locall copy the generated source files `InvoiceOuterClass` and `InvoiceServiceGrpc2` .
-- Create a server side implementation from generated stubs. Check `InvoiceServiceImpl`
-- Create a server `Server.java` and run it.
-- Create a client `Client.java` and run it.
+- Create a server side implementation from generated stubs. Check `no.sysco.middleware.workshops.impl.InvoiceServiceImpl`
+- Create a server `no.sysco.middleware.workshops.impl.Server.java` and run it.
+- Create a client `no.sysco.middleware.workshops.impl.Client.java` and run it.
 
+## Build and run from command line
+- Open terminal
+- Clone the project repository: `git clone https://github.com/PrakharSrivastav/grpc-protobuf-starter.git`
+- Go to project root `cd grpc-protobuf-starter`
+- Build the project `./gradlew build`
+- Run the server `./gradlew runServer`
+- Run the client `./gradlew runClient`
 
 ## Important
 - The number against the fields in protobuf should not change. Changing assigned number will cause breaking changes in the api. It would also mean that client and server stubs needs to be recreated.

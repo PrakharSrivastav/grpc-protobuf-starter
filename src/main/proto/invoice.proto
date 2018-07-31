@@ -1,23 +1,19 @@
 syntax = "proto3";
+option java_package = "no.sysco.middleware.workshops";
 
-option java_package = "com.prakhar.invoice";
-//option java_multiple_files = true;
-//option optimize_for = CODE_SIZE;
-
+// Define a payload called Invoice. This will be used as both request and response
 message Invoice {
+    // Id for the invoice
     string id = 1;
+    // Amount on the invoice
     float amount = 2;
+    // CustomerId this invoice belongs to
     string customerId = 3;
-    State state = 4;
 }
 
 
-enum State {
-    NEW = 0;
-    PAID = 1;
-    FAILED = 2;
-}
-
+// InvoiceService is name of the service which will contain all the methods related to invoice operations
 service InvoiceService {
+    // Request Payment of an invoice
     rpc Pay (Invoice) returns (Invoice);
 }

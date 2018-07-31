@@ -1,24 +1,27 @@
-package com.prakhar.invoice;
+package no.sysco.middleware.workshops;
 
-import static io.grpc.stub.ClientCalls.asyncUnaryCall;
-import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
-import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ClientCalls.blockingUnaryCall;
-import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
-import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.MethodDescriptor.generateFullMethodName;
-import static io.grpc.stub.ServerCalls.asyncUnaryCall;
-import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
+import static io.grpc.stub.ClientCalls.blockingUnaryCall;
+import static io.grpc.stub.ClientCalls.futureUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
-import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncUnaryCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
+ * <pre>
+ * InvoiceService is name of the service which will contain all the methods related to invoice operations
+ * </pre>
  */
 @javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.7.0)",
+    value = "by gRPC proto compiler (version 1.13.1)",
     comments = "Source: invoice.proto")
 public final class InvoiceServiceGrpc {
 
@@ -27,19 +30,32 @@ public final class InvoiceServiceGrpc {
   public static final String SERVICE_NAME = "InvoiceService";
 
   // Static method descriptors that strictly reflect the proto.
-  @io.grpc.ExperimentalApi("https://github.com/grpc/grpc-java/issues/1901")
-  public static final io.grpc.MethodDescriptor<com.prakhar.invoice.InvoiceOuterClass.Invoice,
-      com.prakhar.invoice.InvoiceOuterClass.Invoice> METHOD_PAY =
-      io.grpc.MethodDescriptor.<com.prakhar.invoice.InvoiceOuterClass.Invoice, com.prakhar.invoice.InvoiceOuterClass.Invoice>newBuilder()
-          .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-          .setFullMethodName(generateFullMethodName(
-              "InvoiceService", "Pay"))
-          .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.prakhar.invoice.InvoiceOuterClass.Invoice.getDefaultInstance()))
-          .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-              com.prakhar.invoice.InvoiceOuterClass.Invoice.getDefaultInstance()))
-          .setSchemaDescriptor(new InvoiceServiceMethodDescriptorSupplier("Pay"))
-          .build();
+  private static volatile io.grpc.MethodDescriptor<no.sysco.middleware.workshops.InvoiceOuterClass.Invoice,
+      no.sysco.middleware.workshops.InvoiceOuterClass.Invoice> getPayMethod;
+
+  public static io.grpc.MethodDescriptor<no.sysco.middleware.workshops.InvoiceOuterClass.Invoice,
+      no.sysco.middleware.workshops.InvoiceOuterClass.Invoice> getPayMethod() {
+    io.grpc.MethodDescriptor<no.sysco.middleware.workshops.InvoiceOuterClass.Invoice, no.sysco.middleware.workshops.InvoiceOuterClass.Invoice> getPayMethod;
+    if ((getPayMethod = InvoiceServiceGrpc.getPayMethod) == null) {
+      synchronized (InvoiceServiceGrpc.class) {
+        if ((getPayMethod = InvoiceServiceGrpc.getPayMethod) == null) {
+          InvoiceServiceGrpc.getPayMethod = getPayMethod = 
+              io.grpc.MethodDescriptor.<no.sysco.middleware.workshops.InvoiceOuterClass.Invoice, no.sysco.middleware.workshops.InvoiceOuterClass.Invoice>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "InvoiceService", "Pay"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  no.sysco.middleware.workshops.InvoiceOuterClass.Invoice.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  no.sysco.middleware.workshops.InvoiceOuterClass.Invoice.getDefaultInstance()))
+                  .setSchemaDescriptor(new InvoiceServiceMethodDescriptorSupplier("Pay"))
+                  .build();
+          }
+        }
+     }
+     return getPayMethod;
+  }
 
   /**
    * Creates a new async stub that supports all call types for the service
@@ -65,30 +81,39 @@ public final class InvoiceServiceGrpc {
   }
 
   /**
+   * <pre>
+   * InvoiceService is name of the service which will contain all the methods related to invoice operations
+   * </pre>
    */
   public static abstract class InvoiceServiceImplBase implements io.grpc.BindableService {
 
     /**
+     * <pre>
+     * Request Payment of an invoice
+     * </pre>
      */
-    public void pay(com.prakhar.invoice.InvoiceOuterClass.Invoice request,
-        io.grpc.stub.StreamObserver<com.prakhar.invoice.InvoiceOuterClass.Invoice> responseObserver) {
-      asyncUnimplementedUnaryCall(METHOD_PAY, responseObserver);
+    public void pay(no.sysco.middleware.workshops.InvoiceOuterClass.Invoice request,
+        io.grpc.stub.StreamObserver<no.sysco.middleware.workshops.InvoiceOuterClass.Invoice> responseObserver) {
+      asyncUnimplementedUnaryCall(getPayMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            METHOD_PAY,
+            getPayMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.prakhar.invoice.InvoiceOuterClass.Invoice,
-                com.prakhar.invoice.InvoiceOuterClass.Invoice>(
+                no.sysco.middleware.workshops.InvoiceOuterClass.Invoice,
+                no.sysco.middleware.workshops.InvoiceOuterClass.Invoice>(
                   this, METHODID_PAY)))
           .build();
     }
   }
 
   /**
+   * <pre>
+   * InvoiceService is name of the service which will contain all the methods related to invoice operations
+   * </pre>
    */
   public static final class InvoiceServiceStub extends io.grpc.stub.AbstractStub<InvoiceServiceStub> {
     private InvoiceServiceStub(io.grpc.Channel channel) {
@@ -107,15 +132,21 @@ public final class InvoiceServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Request Payment of an invoice
+     * </pre>
      */
-    public void pay(com.prakhar.invoice.InvoiceOuterClass.Invoice request,
-        io.grpc.stub.StreamObserver<com.prakhar.invoice.InvoiceOuterClass.Invoice> responseObserver) {
+    public void pay(no.sysco.middleware.workshops.InvoiceOuterClass.Invoice request,
+        io.grpc.stub.StreamObserver<no.sysco.middleware.workshops.InvoiceOuterClass.Invoice> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(METHOD_PAY, getCallOptions()), request, responseObserver);
+          getChannel().newCall(getPayMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
   /**
+   * <pre>
+   * InvoiceService is name of the service which will contain all the methods related to invoice operations
+   * </pre>
    */
   public static final class InvoiceServiceBlockingStub extends io.grpc.stub.AbstractStub<InvoiceServiceBlockingStub> {
     private InvoiceServiceBlockingStub(io.grpc.Channel channel) {
@@ -134,14 +165,20 @@ public final class InvoiceServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Request Payment of an invoice
+     * </pre>
      */
-    public com.prakhar.invoice.InvoiceOuterClass.Invoice pay(com.prakhar.invoice.InvoiceOuterClass.Invoice request) {
+    public no.sysco.middleware.workshops.InvoiceOuterClass.Invoice pay(no.sysco.middleware.workshops.InvoiceOuterClass.Invoice request) {
       return blockingUnaryCall(
-          getChannel(), METHOD_PAY, getCallOptions(), request);
+          getChannel(), getPayMethod(), getCallOptions(), request);
     }
   }
 
   /**
+   * <pre>
+   * InvoiceService is name of the service which will contain all the methods related to invoice operations
+   * </pre>
    */
   public static final class InvoiceServiceFutureStub extends io.grpc.stub.AbstractStub<InvoiceServiceFutureStub> {
     private InvoiceServiceFutureStub(io.grpc.Channel channel) {
@@ -160,11 +197,14 @@ public final class InvoiceServiceGrpc {
     }
 
     /**
+     * <pre>
+     * Request Payment of an invoice
+     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<com.prakhar.invoice.InvoiceOuterClass.Invoice> pay(
-        com.prakhar.invoice.InvoiceOuterClass.Invoice request) {
+    public com.google.common.util.concurrent.ListenableFuture<no.sysco.middleware.workshops.InvoiceOuterClass.Invoice> pay(
+        no.sysco.middleware.workshops.InvoiceOuterClass.Invoice request) {
       return futureUnaryCall(
-          getChannel().newCall(METHOD_PAY, getCallOptions()), request);
+          getChannel().newCall(getPayMethod(), getCallOptions()), request);
     }
   }
 
@@ -188,8 +228,8 @@ public final class InvoiceServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_PAY:
-          serviceImpl.pay((com.prakhar.invoice.InvoiceOuterClass.Invoice) request,
-              (io.grpc.stub.StreamObserver<com.prakhar.invoice.InvoiceOuterClass.Invoice>) responseObserver);
+          serviceImpl.pay((no.sysco.middleware.workshops.InvoiceOuterClass.Invoice) request,
+              (io.grpc.stub.StreamObserver<no.sysco.middleware.workshops.InvoiceOuterClass.Invoice>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -213,7 +253,7 @@ public final class InvoiceServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return com.prakhar.invoice.InvoiceOuterClass.getDescriptor();
+      return no.sysco.middleware.workshops.InvoiceOuterClass.getDescriptor();
     }
 
     @java.lang.Override
@@ -252,7 +292,7 @@ public final class InvoiceServiceGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new InvoiceServiceFileDescriptorSupplier())
-              .addMethod(METHOD_PAY)
+              .addMethod(getPayMethod())
               .build();
         }
       }
